@@ -48,7 +48,7 @@ which turns uncaught Rails exceptions into appygrams.
 * This gem must not have other dependencies.
 * This gem may take advantage of other gems (e.g. async i/o,
   background queueing, http pooling) if detected, and the advantage
-  is relatedS directly to communication with the service
+  is related directly to communication with the service
 * Effort should be made to retain parity with other fully supported
   connectors
 
