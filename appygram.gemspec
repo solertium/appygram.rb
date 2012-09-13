@@ -5,9 +5,9 @@ require "appygram/version"
 Gem::Specification.new do |s|
   s.name        = "appygram"
   s.version     = Appygram::VERSION
-  s.authors     = ["Rob Heittman"]
+  s.authors     = ["rfc2616"]
   s.email       = ["heittman.rob@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "http://www.appygram.com/"
   s.summary     = %q{Communicate with the Appygram message routing service}
   s.description = %q{Discovers topics and sends messages}
 
