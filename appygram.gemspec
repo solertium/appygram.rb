@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Appygram::VERSION
   s.authors     = ["rfc2616"]
   s.email       = ["heittman.rob@gmail.com"]
-  s.homepage    = "http://www.appygram.com/"
+  s.homepage    = "https://github.com/anythinglabs/appygram.rb"
   s.summary     = %q{Communicate with the Appygram message routing service}
   s.description = %q{Discovers topics and sends messages}
 
