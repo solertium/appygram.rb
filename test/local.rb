@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'appygram'
 
-describe Appygram do
+describe Appygram::Config do
   describe "when invoking the gem" do
     it "must have a version number" do
       Appygram::VERSION.wont_be_nil
@@ -15,6 +15,8 @@ describe Appygram do
     it "must support setting the platform" do
       Appygram.configure :platform => 'test_plat'
       Appygram::Config.platform.must_equal 'test_plat'
+      Appygram.configure :software => 'some_sw'
+      Appygram::Config.platform.must_equal 'test_plat'
     end
     it "must support setting the software" do
       Appygram.configure :software => 'test_sw'
@@ -27,9 +29,6 @@ describe Appygram do
     it "must support overriding the trace endpoint" do
       Appygram.configure :trace_endpoint => 'http://a/b'
       Appygram::Config.trace_endpoint.to_s.must_equal 'http://a/b'
-    end
-    it "must not clobber values set earlier" do
-      Appygram::Config.platform.must_equal 'test_plat'
     end
   end
 end
