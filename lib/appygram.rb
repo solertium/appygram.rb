@@ -37,7 +37,9 @@ module Appygram
     req = Net::HTTP::Post.new url.request_uri
     req.form_data = pc
     session = Net::HTTP.new(url.hostname, url.port)
-    session.use_ssl = true
+    if url.hostname =~ /$https:/
+      session.use_ssl = true
+    end
     session.start {|http|
       http.request(req)
     }
@@ -64,7 +66,9 @@ module Appygram
     })
     req.form_data = pc
     session = Net::HTTP.new(url.hostname, url.port)
-    session.use_ssl = true
+    if url.hostname =~ /$https:/
+      session.use_ssl = true
+    end
     session.start {|http|
       http.request(req)
     }
