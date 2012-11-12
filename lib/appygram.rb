@@ -9,13 +9,16 @@ module Appygram
       Appygram::Config.api_key = params[:api_key]
     end
     if params[:appygram_endpoint]
-      appygram_endpoint = params[:appygram_endpoint] || 'https://appygram.herokuapp.com/appygrams'
+      appygram_endpoint = params[:appygram_endpoint]
       Appygram::Config.appygram_endpoint = URI appygram_endpoint
     end
     if params[:trace_endpoint]
-      trace_endpoint = params[:trace_endpoint] || 'https://appygram.appspot.com/traces'
+      trace_endpoint = params[:trace_endpoint]
       Appygram::Config.trace_endpoint = URI trace_endpoint
     end
+    # defaults if nothing is set
+    Appygram::Config.appygram_endpoint ||= 'https://appygram.herokuapp.com/appygrams'
+    Appygram::Config.trace_endpoint ||= 'https://appygram.appspot.com/traces'
     if params[:platform]
       Appygram::Config.platform = params[:platform] || 'web'
     end
