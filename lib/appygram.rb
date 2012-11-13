@@ -39,7 +39,7 @@ module Appygram
     url = Appygram::Config.appygram_endpoint
     req = Net::HTTP::Post.new url.request_uri
     req.form_data = pc
-    session = Net::HTTP.new(url.hostname, url.port)
+    session = Net::HTTP.new(url.host, url.port)
     if url.scheme == 'https'
       session.use_ssl = true
     end
@@ -68,7 +68,7 @@ module Appygram
       'backtrace' => trace
     })
     req.form_data = pc
-    session = Net::HTTP.new(url.hostname, url.port)
+    session = Net::HTTP.new(url.host, url.port)
     if url.scheme == 'https'
       session.use_ssl = true
     end
