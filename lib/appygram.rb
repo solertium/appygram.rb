@@ -17,8 +17,8 @@ module Appygram
       Appygram::Config.trace_endpoint = URI trace_endpoint
     end
     # defaults if nothing is set
-    Appygram::Config.appygram_endpoint ||= URI 'https://appygram.herokuapp.com/appygrams'
-    Appygram::Config.trace_endpoint ||= URI 'https://appygram.appspot.com/traces'
+    Appygram::Config.appygram_endpoint ||= URI 'https://arecibo.appygram.com/appygrams'
+    Appygram::Config.trace_endpoint ||= URI 'https://arecibo.appygram.com/traces'
     if params[:platform]
       Appygram::Config.platform = params[:platform] || 'web'
     end
