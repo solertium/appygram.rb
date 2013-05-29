@@ -106,15 +106,6 @@ anything you supply here will be additively merged.
 Appygram.add_trace_uris 'lib' => 'http://github.com/anythinglabs/appygram.rb'
 ```
 
-## Troubleshooting SSL
-
-The default production endpoint, https://arecibo.appygram.com, requires
-SNI (Server Name Indication) support for SSL. This is not present in
-older versions of OpenSSL and/or Ruby, and may be buggy on some
-platforms. An alternate non-SNI SSL endpoint is at
-https://appygram.appspot.com. You can, but almost certainly should
-not, send messages over plain HTTP without SSL.
-
 ## Rules for improvement
 
 *   This gem must not have other dependencies.
