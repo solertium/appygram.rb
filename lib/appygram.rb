@@ -8,6 +8,9 @@ module Appygram
     if params[:api_key]
       Appygram::Config.api_key = params[:api_key]
     end
+    if params[:topic]
+      Appygram::Config.topic = params[:topic]
+    end
     if params[:appygram_endpoint]
       appygram_endpoint = params[:appygram_endpoint]
       Appygram::Config.appygram_endpoint = URI appygram_endpoint
@@ -31,6 +34,7 @@ module Appygram
   def self.send(params)
     pc = params.clone
     pc[:api_key] = Appygram::Config.api_key
+    pc[:topic] = Appygram::Config.topic unless pc[:topic]
     pc[:platform] = Appygram::Config.platform unless pc[:platform]
     pc[:software] = Appygram::Config.software unless pc[:software]
     if pc[:app_json]
@@ -51,6 +55,7 @@ module Appygram
   def self.trace(exception, params = {})
     pc = params.clone
     pc[:api_key] = Appygram::Config.api_key
+    pc[:topic] = Appygram::Config.topic unless pc[:topic]
     pc[:platform] = Appygram::Config.platform unless pc[:platform]
     pc[:software] = Appygram::Config.software unless pc[:software]
     if pc[:app_json]
@@ -79,9 +84,12 @@ module Appygram
 
   class Config
     class << self
-      attr_accessor :api_key, :appygram_endpoint, :trace_endpoint, :software, :platform
+      attr_accessor :api_key, :topic, :appygram_endpoint, :trace_endpoint, :software, :platform
       def api_key
         return @api_key unless @api_key.nil?
+      end
+      def topic
+        return @topic unless @topic.nil?
       end
       def appygram_endpoint
         return @appygram_endpoint unless @appygram_endpoint.nil?
